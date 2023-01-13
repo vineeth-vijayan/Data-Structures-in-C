@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 struct Node{
 	struct Node *lchild;
@@ -43,8 +43,13 @@ struct Node * dequeue(struct Queue *q){
 }
 
 int isEmpty(struct Queue q){
+	//printf("%d %d ", q.front, q.rear);
 	return q.front==q.rear;
 }
+
+/*void show_f_r(struct Queue q){
+	printf("\n%d %d\n", q.front, q.rear);
+}*/
 
 struct Node *root=NULL;
 
@@ -106,6 +111,21 @@ void Postorder(struct Node *p){
 	}
 }
 
+void Levelorder(struct Queue *lq, struct Node *p){
+	if(p==root && root!=NULL)
+		enqueue(lq, p);
+	if(!isEmpty(*lq)){
+		p = dequeue(lq);
+		if(p->lchild!=NULL)
+			enqueue(lq,p->lchild);
+		if(p->rchild!=NULL)
+			enqueue(lq,p->rchild);
+		printf("%d ", p->data);
+		//p = dequeue(lq) ;
+		//printf("\nempty: %d %d,%d", isEmpty(*lq), lq->front, lq->rear);
+	}
+}
+
 int main(){
 	Treecreate();
 	printf("\nPre Order: ");
@@ -114,6 +134,10 @@ int main(){
 	Postorder(root);
 	printf("\nInorder: ");
 	Inorder(root);
+	struct Queue lq;
+        create(&lq,20);
+	printf("\nLevel Order: ");
+	Levelorder(&lq, root);
 	printf("\n");
 	return 0;
 }
