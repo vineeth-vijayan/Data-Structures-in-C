@@ -15,51 +15,33 @@ int main(){
 				root = add_node(root, val);
 				break;
 			case 2:
-				if(!isTreeEmpty(/*root*/))
+				if(!isTreeEmpty())
 					printf("\tTree is not empty!!\n");
 				else
 					printf("\tTree is empty!!\n");
 				break;
 			case 3:
-				if(!isTreeEmpty(/*root*/)){
-					ind = 0;
+				if(!isTreeEmpty())
 					Preorder(root);
-					//printf("\n%d\n", size);
-					for(int i=0; i<size; i++)
-						printf("%d ", ar[i]);
-					printf("\n");
-				}
 				else
 					printf("\tTree is empty!!\n");
 				break;
 			case 4:
-				if(!isTreeEmpty(/*root*/)){
-					ind = 0;
+				if(!isTreeEmpty())
 					Postorder(root);
-					//printf("\n%d\n", size);
-					for(int i=0; i<size; i++)
-						printf("%d ", ar[i]);
-					printf("\n");
-				}
 				else
 					printf("\tTree is empty!!\n ");
 				break;
 			case 5:
-				if(!isTreeEmpty(/*root*/)){
-					ind = 0;
+				if(!isTreeEmpty())
 					Inorder(root);
-					//printf("\n%d\n", size);
-					for(int i=0; i<size; i++)
-						printf("%d ", ar[i]);
-					printf("\n");
-				}
 				else
 					printf("\tTree is empty!!\n");
 				break;
 			case 6:
 				printf("Enter value to be deleted: ");
 				scanf("%d", &val);
-				if(!isTreeEmpty(/*root*/))
+				if(!isTreeEmpty())
 					root = delete_node(root, val);
 				else
 					printf("\tTree is empty!!\n");
